@@ -10,6 +10,7 @@ import{ImCancelCircle} from 'react-icons/im'
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(true)
+const normalLink = 'flex items-center justify-start gap-3 hover:bg-primary p-3 justify-center rounded-md cursor-pointer text-[#f51997] font-semibold xl:justify-start  ';
 
 
   return (
@@ -20,9 +21,29 @@ const Sidebar = () => {
      >
      
       {sidebar ? <ImCancelCircle/>:<AiOutlineMenu/>} 
-
-
       </div>
+      {sidebar && (
+        <div className=" bg-gray-100 z-50 shadow-lg
+        flex flex-col items-center justify-start "
+        >
+          <div className="w-full flex justify-center items-center py-4
+          xl:w-auto xl:justify-start xl:py-0
+          ">
+            <Link href="/" >
+              <div className={normalLink} >
+                <p>
+                  <AiFillHome className="text-2xl" />
+                </p>
+                <span className='text-xl hidden' >
+                  for You
+                </span>
+              </div>
+            </Link>
+              
+             
+
+          </div> 
+          </div> )}
 
     </div>
   )
