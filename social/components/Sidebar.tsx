@@ -5,6 +5,9 @@ import { useRouter } from 'next/router'
 import { GoogleLogout, GoogleLogin } from 'react-google-login'
 import { AiFillHome,AiOutlineMenu } from 'react-icons/ai'
 import{ImCancelCircle} from 'react-icons/im'
+import Discover from './Discover'
+import SuggestedAccounts from './SuggestedAccounts'
+import Footer from './Footer'
 
 
 
@@ -53,7 +56,7 @@ const userProfile = false;
                   <GoogleLogin
                   clientId=''
                   render={renderProps => (
-                    <button onClick={renderProps.onClick} className = 'text-lg bg-white text-[#F51997] border-[#F51997] border-[1px] px-6 py-3 rounded-md w-full mt-3 outline-none ' disabled={renderProps.disabled}>Login</button>
+                    <button onClick={renderProps.onClick} className = 'text-lg cursor-pointer bg-white text-[#F51997] border-[#F51997] border-[1px] px-6 py-3 rounded-md w-full mt-3 outline-none hover:bg-[#F51997]  hover:text-white' disabled={renderProps.disabled}>Login</button>
                   )}
                   onSuccess={()=>{
                     console.log('success')
@@ -67,6 +70,9 @@ const userProfile = false;
                 </div>
               </div>
             )}
+            <Discover/>
+            <SuggestedAccounts/>
+            <Footer/>
           </div> )}
 
     </div>
