@@ -11,7 +11,7 @@ import{ImCancelCircle} from 'react-icons/im'
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(true)
 const normalLink = 'flex items-center justify-start gap-3 hover:bg-primary p-3 justify-center rounded-md cursor-pointer text-[#f51997] font-semibold xl:justify-start  ';
-
+const userProfile = false;
 
   return (
     <div >
@@ -31,10 +31,10 @@ const normalLink = 'flex items-center justify-start gap-3 hover:bg-primary p-3 j
           ">
             <Link href="/" >
               <div className={normalLink} >
-                <p>
-                  <AiFillHome className="text-2xl" />
+                <p className="text-2xl">
+                  <AiFillHome  />
                 </p>
-                <span className='text-xl hidden' >
+                <span className='text-xl hidden xl:block' >
                   for You
                 </span>
               </div>
@@ -43,6 +43,30 @@ const normalLink = 'flex items-center justify-start gap-3 hover:bg-primary p-3 j
              
 
           </div> 
+          {
+            !userProfile && (
+              <div className='px-2 py-4 hidden xl:block' >
+                <p className='text-gray-400 ' >
+                login to like and comment on videos
+                </p>
+                <div className="pr-4">
+                  <GoogleLogin
+                  clientId=''
+                  render={renderProps => (
+                    <button onClick={renderProps.onClick} className = 'text-lg bg-white text-[#F51997] border-[#F51997] border-[1px] px-6 py-3 rounded-md w-full mt-3 outline-none ' disabled={renderProps.disabled}>Login</button>
+                  )}
+                  onSuccess={()=>{
+                    console.log('success')
+                  }
+                  }
+                  onFailure={()=>{
+                    console.log('failed')
+                  }}
+                  cookiePolicy='single_host_origin'
+                  />
+                </div>
+              </div>
+            )}
           </div> )}
 
     </div>
